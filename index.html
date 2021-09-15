@@ -74,12 +74,16 @@
             border-style: none;
             border-bottom: 0.1px solid hsl(237, 12%, 33%);
             text-align: start;
-            padding-bottom: 10px;
+            padding: 15px 15px 15px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
         }
         
-        button svg {
-            display: flex;
-            flex-flow: row;
+        .panel {
+            display: none;
+            overflow: hidden;
         }
         
         p {
@@ -89,10 +93,11 @@
         .attribution {
             font-size: 11px;
             text-align: center;
+            color: black;
         }
         
         .attribution a {
-            color: hsl(228, 45%, 44%);
+            color: white;
         }
     </style>
 </head>
