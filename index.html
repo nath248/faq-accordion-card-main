@@ -76,9 +76,20 @@
             text-align: start;
             padding: 15px 15px 15px 0;
             cursor: pointer;
+            border: none;
+            outline: none;
             transition: 0.3s;
             display: flex;
             justify-content: space-between;
+        }
+        
+        .active,
+        .accordion:hover {
+            font-weight: 700;
+        }
+        
+        .flip::selection {
+            transform: rotate(180deg);
         }
         
         .panel {
@@ -112,27 +123,27 @@
         </div>
         <div class="details">
             <h1>FAQ</h1>
-            <button class="accordion">How many team members can I invite?<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
+            <button class="accordion">How many team members can I invite?<svg class="flip" width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
 
             <div class="panel">
                 <p>You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
             </div>
-            <button class="accordion">What is the maximum file upload size?<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
+            <button class="accordion">What is the maximum file upload size?<svg class="flip" width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
 
             <div class="panel">
                 <p>No more than 2GB. All files in your account must fit your allotted storage space.</p>
             </div>
-            <button class="accordion">How do I reset my password?<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
+            <button class="accordion">How do I reset my password?<svg class="flip" width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
 
             <div class="panel">
                 <p>Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
             </div>
-            <button class="accordion">Can I cancel my subscription?<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
+            <button class="accordion">Can I cancel my subscription?<svg class="flip" width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
 
             <div class="panel">
                 <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
             </div>
-            <button class="accordion">Do you provide additional support?<svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
+            <button class="accordion">Do you provide additional support?<svg class="flip" width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 .799l4 4 4-4" stroke="#F47B56" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></button>
 
             <div class="panel">
                 <p>Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
@@ -144,6 +155,25 @@
     <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Nathaly Herrera</a>.
     </div>
+
+    <script>
+        const button = document.querySelectorAll(".accordion");
+        let i;
+
+        for (i = 0; i < button.length; i++) {
+            button[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                let arr = document.querySelectorAll(".flip");
+                console.log(arr);
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
